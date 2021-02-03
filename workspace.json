@@ -1,0 +1,122 @@
+{
+  "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "styled-components"
+      },
+      "library": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "mirari",
+  "projects": {
+    "mirari": {
+      "root": "apps/mirari",
+      "sourceRoot": "apps/mirari/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/mirari",
+            "index": "apps/mirari/src/index.html",
+            "main": "apps/mirari/src/main.tsx",
+            "polyfills": "apps/mirari/src/polyfills.ts",
+            "tsConfig": "apps/mirari/tsconfig.app.json",
+            "assets": ["apps/mirari/src/favicon.ico", "apps/mirari/src/assets"],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/mirari/src/environments/environment.ts",
+                  "with": "apps/mirari/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "mirari:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "mirari:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/mirari/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/mirari"],
+          "options": {
+            "jestConfig": "apps/mirari/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mirari-e2e": {
+      "root": "apps/mirari-e2e",
+      "sourceRoot": "apps/mirari-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/mirari-e2e/cypress.json",
+            "tsConfig": "apps/mirari-e2e/tsconfig.e2e.json",
+            "devServerTarget": "mirari:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mirari:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/mirari-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  }
+}
