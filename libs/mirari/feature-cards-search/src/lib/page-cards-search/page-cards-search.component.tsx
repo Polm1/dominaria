@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { scryfall } from '@dominaria/api';
+import scryfall from 'scryfall-client';
 
 import { Card, CardList, SearchBar } from '@dominaria/components';
 
@@ -9,13 +9,12 @@ export const PageCardsSearch = () => {
 
   const onSearchSubmit = (term: string) => {
     scryfall
-      .get('/cards/search', {
-        params: {
-          q: term,
-        },
-      })
+      .search(term)
       .then((res) => {
-        setState({ results: res.data.data });
+        setState({ results: res });
+      })
+      .catch((err) => {
+        console.error('-- err', err);
       });
   };
 

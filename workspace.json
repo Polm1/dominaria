@@ -1,8 +1,6 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "generators": {
     "@nrwl/react": {
       "application": {
@@ -10,13 +8,8 @@
         "linter": "eslint",
         "babel": true
       },
-      "component": {
-        "style": "styled-components"
-      },
-      "library": {
-        "style": "styled-components",
-        "linter": "eslint"
-      }
+      "component": { "style": "styled-components" },
+      "library": { "style": "styled-components", "linter": "eslint" }
     }
   },
   "defaultProject": "mirari",
@@ -25,20 +18,18 @@
       "root": "apps/mirari",
       "sourceRoot": "apps/mirari/src",
       "projectType": "application",
-      "schematics": {},
-      "architect": {
+      "generators": {},
+      "targets": {
         "fetch-versions": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              {
-                "command": "node tools/scripts/fetch-versions.js apps/mirari"
-              }
+              { "command": "node tools/scripts/fetch-versions.js apps/mirari" }
             ]
           }
         },
         "build": {
-          "builder": "@nrwl/web:build",
+          "executor": "@nrwl/web:build",
           "options": {
             "outputPath": "dist/apps/mirari",
             "index": "apps/mirari/src/index.html",
@@ -74,24 +65,20 @@
           }
         },
         "serve": {
-          "builder": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "mirari:build"
-          },
+          "executor": "@nrwl/web:dev-server",
+          "options": { "buildTarget": "mirari:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "mirari:build:production"
-            }
+            "production": { "buildTarget": "mirari:build:production" }
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/mirari/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/mirari/jest.config.js",
             "passWithNoTests": true
@@ -112,16 +99,12 @@
             "devServerTarget": "mirari:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "mirari:serve:production"
-            }
+            "production": { "devServerTarget": "mirari:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/mirari-e2e/**/*.{js,ts}"]
-          }
+          "options": { "lintFilePatterns": ["apps/mirari-e2e/**/*.{js,ts}"] }
         }
       }
     },
@@ -185,27 +168,6 @@
           "outputs": ["coverage/libs/mirari/state"],
           "options": {
             "jestConfig": "libs/mirari/state/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "api": {
-      "root": "libs/api",
-      "sourceRoot": "libs/api/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/api/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api"],
-          "options": {
-            "jestConfig": "libs/api/jest.config.js",
             "passWithNoTests": true
           }
         }
