@@ -9,8 +9,9 @@ export const PageCardsSearch = () => {
 
   const onSearchSubmit = (term: string) => {
     scryfall
-      .search(term)
+      .search(term, { unique: 'prints', order: 'released', dir: 'asc' })
       .then((res) => {
+        console.log('-- search - res', res);
         setState({ results: res });
       })
       .catch((err) => {

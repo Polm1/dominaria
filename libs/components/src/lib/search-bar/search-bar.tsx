@@ -17,7 +17,7 @@ export const SearchBar: React.FC<any> = (props) => {
     scryfall
       .autocomplete(q)
       .then((res) => {
-        console.log('-- res', res);
+        // console.log('-- autocomplete res', res);
         setSuggestion(res);
       })
       .catch((err) => console.log('err', err));
