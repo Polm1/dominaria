@@ -12,6 +12,8 @@ import {
 
 //TODO: fix types in entire app, especially HTML elements :)
 
+//TODO: fork scryfall-client and refactor to comply named export: https://github.com/crookedneighbor/scryfall-client
+
 //TODO: install pricing api https://www.npmjs.com/package/cardmarket-request
 
 export const App = () => {
