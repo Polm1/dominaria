@@ -17,6 +17,10 @@
   },
   "projects": {
     "mirari": { "tags": [] },
-    "mirari-e2e": { "tags": [], "implicitDependencies": ["mirari"] }
+    "mirari-e2e": { "tags": [], "implicitDependencies": ["mirari"] },
+    "components": { "tags": [] },
+    "mirari-feature-cards-search": { "tags": [] },
+    "mirari-state": { "tags": [] },
+    "api": { "tags": [] }
   }
 }
