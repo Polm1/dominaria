@@ -5,7 +5,7 @@ const deckSlice = createSlice({
   initialState: { cards: [] },
   reducers: {
     addCard(state, action) {
-      //TODO: after TS installation, this works no more, fix it :)
+      //TODO: rewrite this horror
       // state.cards.push(action.payload);
 
       //TODO: refactor using spread to push new object in the array (and fix previous issue)
