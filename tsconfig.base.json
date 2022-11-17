@@ -17,10 +17,13 @@
     "paths": {
       "@dominaria/components": ["libs/components/src/index.ts"],
       "@dominaria/mirari": ["libs/mirari/src/index.ts"],
-      "@dominaria/mirari/feature-cards-search": [
-        "libs/mirari/feature-cards-search/src/index.ts"
+      "@dominaria/mirari/state": ["libs/mirari/state/src/index.ts"],
+      "@dominaria/mirari/features/deckbuilder/page": [
+        "libs/mirari/features/deckbuilder/page/src/index.ts"
       ],
-      "@dominaria/mirari/state": ["libs/mirari/state/src/index.ts"]
+      "@dominaria/mirari/features/deckbuilder/routing": [
+        "libs/mirari/features/deckbuilder/routing/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

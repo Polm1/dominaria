@@ -19,7 +19,8 @@
     "mirari": { "tags": [] },
     "mirari-e2e": { "tags": [], "implicitDependencies": ["mirari"] },
     "components": { "tags": [] },
-    "mirari-feature-cards-search": { "tags": [] },
-    "mirari-state": { "tags": [] }
+    "mirari-state": { "tags": [] },
+    "mirari-features-deckbuilder-page": { "tags": [] },
+    "mirari-features-deckbuilder-routing": { "tags": [] }
   }
 }
