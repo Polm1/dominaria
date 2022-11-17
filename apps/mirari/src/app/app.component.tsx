@@ -11,12 +11,8 @@ import {
 } from '@dominaria/mirari/feature-cards-search';
 
 //TODO: fix types in entire app, especially HTML elements :)
-//TODO: take scryfall to 2021 and install some modern-era utilities
-// https://www.npmjs.com/package/scryfall (seems the best: includes typings, the only downside is maintenance)
-// https://www.npmjs.com/package/scryfall-client (well documented, well maintained but seems no typings are included)
-// see also
-// https://www.npmjs.com/package/react-scryfall-components (just for inspiration, not install it)
-// and https://www.npmjs.com/package/scryfall-sdk (but is for node)
+
+//TODO: fork scryfall-client and refactor to comply named export: https://github.com/crookedneighbor/scryfall-client
 
 //TODO: install pricing api https://www.npmjs.com/package/cardmarket-request
 
