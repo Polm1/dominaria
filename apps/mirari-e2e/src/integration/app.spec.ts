@@ -1,5 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
+// TODO: add e2e tests
 describe('mirari', () => {
   beforeEach(() => cy.visit('/'));
 
