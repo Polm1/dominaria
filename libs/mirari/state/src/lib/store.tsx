@@ -1,12 +1,48 @@
+// Third Parties
+import { combineReducers, Reducer } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import { deckFeatureName, deckReducer } from './deck-slice';
+// Features
+import { deckFeatureName, deckReducer } from './deck';
 
-const rootReducer = combineReducers({
+const rootReducer: Reducer = combineReducers({
   [deckFeatureName]: deckReducer,
 });
 
-export const store = configureStore({
-  reducer: rootReducer,
-});
+export type AppState = ReturnType<typeof rootReducer>;
+
+export const initStore = () => {
+  const appName = 'mirari';
+
+  const persistConfig = {
+    key: `${appName}`,
+    storage,
+  };
+
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+  const store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }),
+  });
+
+  const persistor = persistStore(store);
+
+  return { persistor, store };
+};

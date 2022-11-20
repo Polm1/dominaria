@@ -5,16 +5,8 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 // Mirari
-import {
-  cardsSearchMainPath,
-  PageCardsSearch,
-} from '@dominaria/mirari/feature-cards-search';
-
-//TODO: fix types in entire app, especially HTML elements :)
-
-//TODO: fork scryfall-client and refactor to comply named export: https://github.com/crookedneighbor/scryfall-client
-
-//TODO: install pricing api https://www.npmjs.com/package/cardmarket-request
+import { Deckbuilder } from '@dominaria/mirari/features/deckbuilder/page';
+import { deckbuilderMainPath } from '@dominaria/mirari/features/deckbuilder/routing';
 
 export const App = () => {
   const pageNotFound = <CenteredWrapper>Page not found</CenteredWrapper>;
@@ -23,13 +15,13 @@ export const App = () => {
     <BrowserRouter basename="">
       <Switch>
         <Route exact path="/home">
-          <Redirect to={cardsSearchMainPath} />
+          <Redirect to={deckbuilderMainPath} />
         </Route>
         <Route exact path="/">
           <Redirect to={'/home'} />
         </Route>
-        <Route exact path={cardsSearchMainPath}>
-          <PageCardsSearch></PageCardsSearch>
+        <Route exact path={deckbuilderMainPath}>
+          <Deckbuilder></Deckbuilder>
         </Route>
         <Route>{pageNotFound}</Route>
       </Switch>

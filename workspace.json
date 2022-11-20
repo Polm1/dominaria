@@ -129,29 +129,6 @@
         }
       }
     },
-    "mirari-feature-cards-search": {
-      "root": "libs/mirari/feature-cards-search",
-      "sourceRoot": "libs/mirari/feature-cards-search/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/mirari/feature-cards-search/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/mirari/feature-cards-search"],
-          "options": {
-            "jestConfig": "libs/mirari/feature-cards-search/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "mirari-state": {
       "root": "libs/mirari/state",
       "sourceRoot": "libs/mirari/state/src",
@@ -168,6 +145,52 @@
           "outputs": ["coverage/libs/mirari/state"],
           "options": {
             "jestConfig": "libs/mirari/state/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mirari-features-deckbuilder-page": {
+      "root": "libs/mirari/features/deckbuilder/page",
+      "sourceRoot": "libs/mirari/features/deckbuilder/page/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mirari/features/deckbuilder/page/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mirari/features/deckbuilder/page"],
+          "options": {
+            "jestConfig": "libs/mirari/features/deckbuilder/page/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mirari-features-deckbuilder-routing": {
+      "root": "libs/mirari/features/deckbuilder/routing",
+      "sourceRoot": "libs/mirari/features/deckbuilder/routing/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mirari/features/deckbuilder/routing/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mirari/features/deckbuilder/routing"],
+          "options": {
+            "jestConfig": "libs/mirari/features/deckbuilder/routing/jest.config.js",
             "passWithNoTests": true
           }
         }
